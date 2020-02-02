@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LegoBricksSpawner : MonoBehaviour
+public class LegoFlySpawner : MonoBehaviour
 {
-    public GameObject[] legoBricks;
+    public GameObject legoBrick;
+    public Lego[] legosSO;
     public Vector3 spawnSize;
     public int legosNumber;
     Vector3 spawnPosition;
@@ -14,7 +15,8 @@ public class LegoBricksSpawner : MonoBehaviour
         for(int i = 0; i < legosNumber; i++)
         {
             spawnPosition = RandomPointInBox(this.transform.position, spawnSize);
-            Instantiate(legoBricks[Random.Range(0, legoBricks.Length)], spawnPosition, Random.rotation);
+            GameObject lego = Instantiate(legoBrick, spawnPosition, Random.rotation);
+            lego.GetComponent<LegoDisplay>().lego = legosSO[Random.Range(0, legosSO.Length)];
         }
     }
 

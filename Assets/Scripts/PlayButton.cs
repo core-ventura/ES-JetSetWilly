@@ -6,6 +6,6 @@ public class PlayButton : MonoBehaviour
 {
     public void ClickPlayButton()
     {
-        FindObjectOfType<GameManager>().LoadGameplayScene();
+        FindObjectOfType<GameManager>().LoadAtticScene();
     }
 }
